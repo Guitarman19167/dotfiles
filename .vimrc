@@ -13,42 +13,14 @@
 	set number
 	set spell
 	set complete+=kspell
+	set nocompatible
+	filetype plugin on
+	syntax on
 
 "Set vimrc shortcut
 	
 	let mapleader = ","
 	nmap <leader>v :tabedit $MYVIMRC<CR>
-
-	autocmd Filetype html setlocal sw=2 expandtab
-	autocmd Filetype javascript setlocal sw=4 expandtab
-
-	set hlsearch
-	nnoremap <C-l> :nohl<CR><C-l>:echo "Search Cleared"<CR>
-	nnoremap <C-c> :set norelativenumber<CR>:set nonumber<CR>:echo "Line numbers turned off."<CR>
-	nnoremap <C-n> :set relativenumber<CR>:set number<CR>:echo "Line numbers turned on."<CR>
-
-	nnoremap n nzzzv
-	nnoremap N Nzzzv
-
-	nnoremap H 0
-	nnoremap L $
-	nnoremap J G
-	nnoremap K gg
-
-	map <tab> %
-
-	set backspace=indent,eol,start
-
-	nnoremap <Space> za
-	nnoremap <leader>z zMzvzz
-
-	nnoremap vv 0v$
-
-	set listchars=tab:\|\
-	nnoremap <leader><tab> :set list!<cr>
-	set pastetoggle=<F2>
-	set mouse=a
-	set incsearch
 
 " Source the vimrc file after saving it
  	if has("autocmd")
@@ -92,5 +64,21 @@
 "Plugins
 	call plug#begin('~/.vim/plugged')
 
+	Plug 'junegunn/vim-plug'
+	Plug 'tpope/vim-fugitive'
+	Plug 'vimwiki/vimwiki'
+	Plug 'vim-airline/vim-airline'
+	Plug 'vim-airline/vim-airline-themes'
 
 	call plug#end()
+
+"Settings for vim-wiki
+ 	"use markdown formatting for wiki pages
+	let g:vimwiki_list = [{'path': '~/vimwiki/',
+	                      \ 'syntax': 'markdown', 'ext': '.md'}]
+
+"Settings for vim-airline
+	"always show the top tab bar
+	let g:airline#extensions#tabline#enabled = 1
+
+
