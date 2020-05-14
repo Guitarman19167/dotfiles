@@ -1,3 +1,5 @@
+ZSH_TMUX_AUTOSTART=true
+
 # Vars
 	HISTFILE=~/.zsh_history
 	SAVEHIST=1000 

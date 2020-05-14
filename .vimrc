@@ -47,7 +47,7 @@
 
 	"enable themes
 	let g:airline#extensions#tabline#enabled = 1
-    let g:airline_theme='gruvbox'
+    let g:airline_theme='base16_gruvbox_dark_hard'
 
 "Settings for pandoc-preview.vim
     let g:pandoc_preview_pdf_cmd = "zathura"
@@ -85,8 +85,8 @@
 	autocmd vimenter * colorscheme gruvbox
 	set background=dark
 
-   " set colorcolumn=80
-"highlight ColorColumn ctermbg=0 guibg=lightgrey
+    set colorcolumn=80
+    highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 "Set vimrc shortcut
 	
