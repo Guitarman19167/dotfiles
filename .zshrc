@@ -9,7 +9,7 @@ ZSH_TMUX_AUTOSTART=true
 	git config --global push.default current
 
 # Aliases
-alias config='/usr/bin/git --git-dir=/home/brandon/dotfiles/ --work-tree=/home/brandon'
+alias dotfiles='/usr/bin/git --git-dir=/home/brandon/dotfiles/ --work-tree=/home/brandon'
 	alias v="vim -p"
 	mkdir -p /tmp/log
 
