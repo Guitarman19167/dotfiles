@@ -31,6 +31,7 @@
     Plug 'leafgarland/typescript-vim'
     Plug 'lyuts/vim-rtags'
     Plug 'git@github.com:ctrlpvim/ctrlp.vim.git'
+    Plug 'ntpeters/vim-better-whitespace'
 
 	call plug#end()
 
@@ -56,14 +57,15 @@
 	filetype plugin on
 	colorscheme gruvbox
 	set background=dark
-    set nowrap
+    "set nowrap
     set undodir=~/.vim/undodir
     set undofile
     set nobackup
     "au FileType * try | execute "compiler ".&filetype | catch /./ | endtry
+    au BufRead,BufNewFile *.md setlocal textwidth=80
 
     set colorcolumn=80
-    highlight ColorColumn ctermbg=0 guibg=lightgrey
+   "highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 "set listchars=eol:$,nbsp:_,tab:>-,trail:~,extends:>,precedes:<
 
@@ -99,7 +101,11 @@
     nnoremap <leader>b y :call Bible()<CR>
     vnoremap <leader>b y :call Bible(@*)<CR> "Use selection as query
 
-"Set vimrc shortcut
+"Settings for better-whitespace
+ let g:better_whitespace_enabled=1
+  let g:strip_whitespace_on_save=1
+
+    "Set vimrc shortcut
 	let mapleader = " "
 	nmap <leader>v :tabedit $MYVIMRC<CR>
 
@@ -108,8 +114,7 @@
         autocmd bufwritepost .vimrc source $MYVIMRC
     endif
 
-    " Uncomment the following to have Vim jump to the last position when                                                       
-    " reopening a file
+    " Uncomment the following to have Vim jump to the last position when reopening a file
     if has("autocmd")
           au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
               \| exe "normal! g'\"" | endif
